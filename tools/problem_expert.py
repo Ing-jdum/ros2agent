@@ -13,7 +13,9 @@ def set_piece(object_name: str) -> str:
 
 @tool
 def scan(zone: str) -> str:
-    """ make the robot go to certain zone of the one present in the instances so it can scan it and see what's there """
+    """ make the robot go to a certain zone, one present in the instances
+    so it can scan it and see what's there.
+    The robot will automatically update instances and predicates. Always ask the user before calling this function"""
     command = (f"""set goal (and(robot_at burger {zone.strip()}))
                 run
                get problem instances""")
@@ -61,5 +63,4 @@ def get_problem_instances() -> str:
 
 def run() -> str:
     """ run a plan """
-    return call_server(b"""get plan
-    run""")
+    return call_server(b"""run""")

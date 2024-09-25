@@ -33,11 +33,10 @@ def call_server(message):
 # set instance init_zone zone
 # set instance trash zone
 #
-# set instance hammer piece
-#
-# set predicate (piece_at hammer table_02)
 # set predicate (robot_available burger)
 # set predicate (robot_at burger init_zone)
 # set predicate (is_recharge_zone recharge_zone)
 # get problem predicates
 # """)
+
+# print(call_server(b'get problem predicates'))
