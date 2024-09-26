@@ -26,9 +26,6 @@ def call_server(message):
 # set instance table_03 zone
 # set instance table_04 zone
 # set instance table_05 zone
-# set instance cabinet_01 zone
-# set instance cabinet_02 zone
-# set instance cabinet_03 zone
 # set instance recharge_zone zone
 # set instance init_zone zone
 # set instance trash zone

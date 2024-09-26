@@ -4,14 +4,6 @@ from utils.tcp_server import call_server
 
 
 @tool
-def set_piece(object_name: str) -> str:
-    """ set a piece instance in the world when the user tells you to"""
-    command = (f"""set instance {object_name.strip()} piece
-               get problem instances""")
-    return call_server(command.encode('utf-8'))
-
-
-@tool
 def scan(zone: str) -> str:
     """ make the robot go to a certain zone, one present in the instances
     so it can scan it and see what's there.
@@ -19,14 +11,6 @@ def scan(zone: str) -> str:
     command = (f"""set goal (and(robot_at burger {zone.strip()}))
                 run
                get problem instances""")
-    return call_server(command.encode('utf-8'))
-
-
-@tool
-def set_piece_at_predicate(object_name: str, object_location: str) -> str:
-    """ set the location of the piece, the piece and location must be present in the problem instances"""
-    command = (f"""set predicate piece_at {object_name.strip()} {object_location.strip()} 
-               get problem predicates""")
     return call_server(command.encode('utf-8'))
 
 @tool
