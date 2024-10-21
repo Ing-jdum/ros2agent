@@ -14,12 +14,13 @@ def scan(zone: str) -> str:
     return call_server(command.encode('utf-8'))
 
 @tool
-def set_goal(goal: str) -> str:
-    """ set the goal based on the domain to achieve so the planner system can get a plan
-    The syntaxt will be <predicate> <parameters> for example
-    piece_at hammer table_01"""
-    command = (f""" set goal (and({goal.strip()})) 
-                get problem goal """)
+def set_goals(goals: list[str]) -> str:
+    """Set multiple goals based on the domain to achieve so the planner system can get a plan.
+    The syntax will be <predicate> <parameters> for example: piece_at something location, another_predicate requirements goal.
+    """
+    formatted_goals = "".join([f"({goal.strip()})" for goal in goals])
+    command = f""" set goal (and {formatted_goals}) 
+                get problem goal """
     return call_server(command.encode('utf-8'))
 
 

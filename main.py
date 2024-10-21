@@ -7,7 +7,8 @@ from langgraph.prebuilt import create_react_agent
 import os
 
 from tools.problem_expert import get_plan, run, get_problem_predicates, \
-    get_problem_instances, set_goal, get_domain, scan
+    get_problem_instances, set_goals, get_domain, scan
+from utils.tcp_server import init
 
 # Load environment variables from .env file
 load_dotenv()
@@ -18,9 +19,10 @@ api_key = os.getenv('OPENAI_API_KEY')
 model = ChatOpenAI(model="gpt-4o")
 
 tools = [scan, get_domain, run, get_plan, get_problem_predicates, get_problem_instances,
-         set_goal]
+         set_goals]
 system_prompt = ("You are a bridge between a classical plannifier and an user. "
-                 "The user will write you request in natural langauge and you will call the corresponding tools writing the needed pddl code accordingly"
+                 "The user will write you request in natural langauge and you will call the corresponding tools writing "
+                 "the needed pddl code according to what the domain and tool says"
                  "When an user request some action to be performed, give back the generated plan and also an interpretation in natural language"
                  " first and ask the user if he wishes to go on with the plan, only after user consent, you can call the run tool.")
 
@@ -28,7 +30,7 @@ memory = MemorySaver()
 config = {"configurable": {"thread_id": "test-thread"}}
 
 agent_executor = create_react_agent(model, tools, state_modifier=system_prompt, checkpointer=memory)
-
+init()
 print("write a command in natural langauge: ")
 while True:
     user_input = input(str())
