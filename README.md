@@ -3,7 +3,11 @@
 
 This project explores the integration of generative AI within the field of robotics, leveraging the ROS2 framework. Created as a complementary component of my Master’s Thesis in Computational Logic and Artificial Intelligence at the University of Seville, it aims to push the boundaries of how AI can enhance robotic systems. While not intended as a comprehensive framework and not slated for ongoing maintenance, this project demonstrates innovative approaches and serves as a valuable proof of concept.
 
+## Environment Variables
 
+To run this project, you will need to add the following environment variables to your .env file, you can rename the file '.env_template'
+
+`OPENAI_API_KEY`
 
 ## Installation
 
@@ -66,13 +70,6 @@ To run this project, you will need to open four terminals. We recommend using [T
      ```
 
 Once all terminals are set up, the project should be fully deployed and operational. You can communicate with the robot through the terminal with the python application.
-
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file, you can rename the file '.env_template'
-
-`OPENAI_API_KEY`
-
 
 ## Documentation
 
