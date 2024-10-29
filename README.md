@@ -24,7 +24,7 @@ Due to known issues with DDS and configuration settings for `robot_model_type` i
 ### Modifying Plansys2 for TCP Connections
 
 1. To enable TCP connections, replace the `plansys2_terminal` package within the Plansys2 library.
-   - Copy the file from the repository directory [`plansys2_packages_changes/plansys2_terminal`] and paste it into your Plansys2 workspace, typically found at:
+   - Copy the file from the repository directory [`plansys2_packages_changes/plansys2_terminal`] and paste it into the location of the original terminal from plansys2, typically found at:
      ```plaintext
      plansys2ws/src/ros2_planning_system
      ```
@@ -32,6 +32,12 @@ Due to known issues with DDS and configuration settings for `robot_model_type` i
 2. Once the file is in place, build the modified package by running the following command in your Plansys2 workspace:
    ```bash
    colcon build --packages-select plansys2_terminal --symlink-install
+### Installing the ROS2 application
+1. Copy the file from the repository directory [ros_application/workshop_plansys2] and paste it into your Plansys2 workspace /src.
+
+2. Once the file is in place, build the modified package by running the following command in your Plansys2 workspace:
+   ```bash
+   colcon build --packages-select workshop_plansys2 --symlink-install
 ## Deployment
 
 To run this project, you will need to open four terminals. We recommend using [Terminator](https://gnome-terminator.org/) to manage multiple terminal windows efficiently.
