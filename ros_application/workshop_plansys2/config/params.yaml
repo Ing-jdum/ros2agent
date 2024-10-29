@@ -1,0 +1,38 @@
+move:
+  ros__parameters:
+    plugins:
+      - plansys2_scan_bt_node
+      - plansys2_move_bt_node
+    waypoints: ["entrance", "table_01", "table_02", "table_03", "table_04", "table_05", "recharge_zone", "init_zone", "trash"]
+    waypoint_coords:
+      entrance: [2.4, -1.9, 0.0]
+      table_01: [1.2, 1.70, 0.0]
+      table_02: [2.4, -0.4, 0.0]
+      table_03: [-0.57, -0.82, 0.0]
+      table_04: [-1.16, 1.42, 0.0]
+      table_05: [-2.0, 0.2, 0.0]
+      recharge_zone: [1.86, -1.9, 0.0]
+      init_zone: [0.0, 0.0, 0.0]
+      trash: [-2.2, 0.76, 0.0]
+transport:
+  ros__parameters:
+    plugins:
+      - plansys2_scan_bt_node
+      - plansys2_load_bt_node
+      - plansys2_unload_bt_node
+      - plansys2_move_bt_node
+    waypoints: ["entrance", "table_01", "table_02", "table_03", "table_04", "table_05", "recharge_zone", "init_zone", "trash"]
+    waypoint_coords:
+      entrance: [2.4, -1.9, 0.0]
+      table_01: [1.2, 1.70, 0.0]
+      table_02: [2.4, -0.4, 0.0]
+      table_03: [-0.57, -0.82, 0.0]
+      table_04: [-1.16, 1.42, 0.0]
+      table_05: [-2.0, 0.2, 0.0]
+      recharge_zone: [1.86, -1.9, 0.0]
+      init_zone: [0.0, 0.0, 0.0]
+      trash: [-2.2, 0.76, 0.0]
+recharge:
+  ros__parameters:
+    plugins:
+      - plansys2_recharge_bt_node
