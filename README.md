@@ -24,7 +24,7 @@ Due to known issues with DDS and configuration settings for `robot_model_type` i
 ### Modifying Plansys2 for TCP Connections
 
 1. To enable TCP connections, replace the `plansys2_terminal` package within the Plansys2 library.
-   - Copy the file from the repository directory [`plansys2_packages_changes/plansys2_terminal`](./plansys2_packages_changes/plansys2_terminal) and paste it into your Plansys2 workspace, typically found at:
+   - Copy the file from the repository directory [`plansys2_packages_changes/plansys2_terminal`](/ros2agent/plansys2_packages_changes/plansys2_terminal) and paste it into your Plansys2 workspace, typically found at:
      ```plaintext
      plansys2ws/src/ros2_planning_system
      ```
