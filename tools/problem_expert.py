@@ -5,12 +5,11 @@ from utils.tcp_server import call_server
 
 @tool
 def scan(zone: str) -> str:
-    """ make the robot go to a certain zone, one present in the instances
-    so it can scan it and see what's there.
-    The robot will automatically update instances and predicates. Always ask the user before calling this function"""
+    """ Use this to find up-to-date information about zones and objects in the world"""
     command = (f"""set goal (and(robot_at burger {zone.strip()}))
                 run
-               get problem instances""")
+               get problem instances
+               get problem predicates""")
     return call_server(command.encode('utf-8'))
 
 @tool
@@ -26,7 +25,7 @@ def set_goals(goals: list[str]) -> str:
 
 @tool
 def get_domain(goal: str) -> str:
-    """problem domain containing functions, syntax and expected parameters."""
+    """Use this to see the pddl domain to check sintax of the permitted predicates and durative actions"""
     return call_server(b'get domain')
 
 @tool
@@ -36,13 +35,15 @@ def get_plan() -> str:
 
 
 def get_problem_predicates() -> str:
-    """ get the current predicates in the world"""
+    """ Use this to get the stored predicates of the world,
+    this knowledge may be outdated and need to be refreshed with a scan """
     return call_server(b'get problem predicates')
 
 
 @tool
 def get_problem_instances() -> str:
-    """ get the current instances in the world"""
+    """ Use this to get the stored instances of the world,
+    this knowledge may be outdated and need to be refreshed with a scan """
     return call_server(b'get problem instances')
 
 

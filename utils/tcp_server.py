@@ -44,3 +44,6 @@ def init():
     get problem predicates
     """)
 
+def instances()-> str:
+    return call_server(b'get problem instances')
+
