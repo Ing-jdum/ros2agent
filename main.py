@@ -36,7 +36,6 @@ while True:
 
     response = agent_executor.invoke(
         {"messages": [HumanMessage(content=user_input)]},
-        config,
-    )
+        config)
 
     print(response["messages"][-1].content)

@@ -5,7 +5,7 @@ from utils.tcp_server import call_server
 
 @tool
 def scan(zone: str) -> str:
-    """ Use this to find up-to-date information about zones and objects in the world"""
+    """ Use this to find up-to-date information about zones and objects in the world when asked"""
     command = (f"""set goal (and(robot_at burger {zone.strip()}))
                 run
                get problem instances

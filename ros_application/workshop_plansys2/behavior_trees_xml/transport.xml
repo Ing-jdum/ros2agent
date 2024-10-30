@@ -3,7 +3,6 @@
        <Sequence name="root_sequence">
            <Scan    name="scan"/>
            <Load name="load" piece="{arg1}" robot="burger" />
-           <Scan    name="scan"/>
            <Move    name="move" goal="{arg3}"/>
            <Unload    name="unload" piece="{arg1}" location="{arg3}"/>
            <Scan    name="scan"/>

@@ -142,10 +142,10 @@ namespace workshop_plansys2
     std::cout << "Load halt" << std::endl;
   }
 
-  // Register the node with BehaviorTree.CPP
-  BT_REGISTER_NODES(factory)
-  {
-    factory.registerNodeType<workshop_plansys2::Load>("Load");
-  }
-
 } // namespace workshop_plansys2
+
+#include "behaviortree_cpp/bt_factory.h"
+BT_REGISTER_NODES(factory)
+{
+  factory.registerNodeType<workshop_plansys2::Load>("Load");
+}

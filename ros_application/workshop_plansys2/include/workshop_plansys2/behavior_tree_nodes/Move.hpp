@@ -19,11 +19,14 @@
 #include <map>
 
 #include "geometry_msgs/msg/pose2_d.hpp"
+#include "gazebo_msgs/srv/get_entity_state.hpp"
 #include "nav2_msgs/action/navigate_to_pose.hpp"
 
 #include "plansys2_bt_actions/BTActionNode.hpp"
 #include "behaviortree_cpp/behavior_tree.h"
 #include "behaviortree_cpp/bt_factory.h"
+#include "rclcpp/rclcpp.hpp"
+
 
 namespace workshop_plansys2
 {
@@ -39,6 +42,8 @@ public:
 
   BT::NodeStatus on_tick() override;
   BT::NodeStatus on_success() override;
+  BT::NodeStatus on_cancelled() override;
+  BT::NodeStatus on_aborted() override;
 
   static BT::PortsList providedPorts()
   {
@@ -50,6 +55,8 @@ public:
 private:
   int goal_reached_;
   std::map<std::string, geometry_msgs::msg::Pose2D> waypoints_;
+  rclcpp::Client<gazebo_msgs::srv::GetEntityState>::SharedPtr get_entity_state_client_;  // Client for GetEntityState
+  double calculate_distance(const geometry_msgs::msg::Point &p1, const geometry_msgs::msg::Point &p2);
 };
 
 }  // namespace workshop_plansys2
